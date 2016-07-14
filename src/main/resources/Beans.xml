@@ -13,7 +13,7 @@
 
     <!-- Definition for studentJDBCTemplate bean -->
     <bean id="urlImplement"
-          class="implement.UrlImplement">
+          class="dao.UrlImplement">
         <property name="dataSource"  ref="dataSource" />
     </bean>
 </beans>

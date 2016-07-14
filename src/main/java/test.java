@@ -1,10 +1,12 @@
+import bean.Url;
+import implement.UrlImplement;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import util.Native2AsciiUtil;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 
@@ -14,20 +16,20 @@ import java.net.URL;
  */
 public class test {
     public static void main(String[] args){
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("Beans.xml");
+        UrlImplement urlImplement = (UrlImplement) context.getBean("urlImplement");
+
         String keyword = "刘亦菲";
-        String url = "http://s.weibo.com/weibo/"+keyword;
+        Url url = new Url();
+        url.setName("http://s.weibo.com/weibo/"+keyword);
         try {
-            Document doc = Jsoup.parse(new URL(url).openStream(), "UTF-8", url);
+            Document doc = Jsoup.parse(new URL(url.getName()).openStream(), "UTF-8", url.getName());
             String doc_ascii = Native2AsciiUtil.ascii2Native(doc.html());
+            url.setContent(doc_ascii);
+            urlImplement.create(url);
+            urlImplement.delete(7);
             Elements links = doc.select("a[href]");
-            try {
-                File file = new File("D:\\Java\\workspace\\PublicOptionMonitor\\src\\doc.html");
-                FileWriter fileWriter = new FileWriter(file);
-                fileWriter.write(doc_ascii);
-                fileWriter.close(); // 关闭数据流
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }

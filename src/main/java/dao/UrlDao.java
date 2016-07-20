@@ -12,6 +12,7 @@ import java.util.List;
 public interface UrlDao {
     public void setDataSource(DataSource ds);
     public void create(Url url);
+    public void deleteAll();
     public Url getUrl(Integer id);
     public void delete(Integer id);
     public void update(Url url);

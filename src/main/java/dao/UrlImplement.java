@@ -55,4 +55,11 @@ public class UrlImplement implements UrlDao {
         List<Url> urls = jdbcTemplate.query(sql, new UrlMapper());
         return urls;
     }
+
+    public void deleteAll() {
+        String sql = "TRUNCATE TABLE Url";
+        jdbcTemplate.update(sql);
+        System.out.println("delete all record");
+        return;
+    }
 }

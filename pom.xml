@@ -7,6 +7,12 @@
   <version>1.0-SNAPSHOT</version>
   <name>PublicOptionMonitor Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <!--Spring mvc-->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.4.0.RELEASE</version>
+  </parent>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -51,7 +57,6 @@
       <artifactId>spring-jdbc</artifactId>
       <version>4.2.5.RELEASE</version>
     </dependency>
-
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -73,9 +78,38 @@
       <version>4.2.6.RELEASE</version>
     </dependency>
 
+    <!--Spring mvc-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <version>1.3.5.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+      <version>1.3.5.RELEASE</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/taglibs/standard -->
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
 
   </dependencies>
   <build>
     <finalName>PublicOptionMonitor</finalName>
   </build>
+  <properties>
+    <finalName>monitor</finalName>
+  </properties>
+
 </project>

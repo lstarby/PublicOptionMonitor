@@ -1,7 +1,6 @@
-package dao;
+package spring.service;
 
-import bean.Url;
-
+import spring.model.Url;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -9,7 +8,8 @@ import java.util.List;
 /**
  * Created by PC on 2016/7/14.
  */
-public interface UrlDao {
+
+public interface UrlService {
     public void setDataSource(DataSource ds);
     public void create(Url url);
     public void deleteAll();

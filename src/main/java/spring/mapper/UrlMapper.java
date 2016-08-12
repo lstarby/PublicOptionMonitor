@@ -1,6 +1,6 @@
-package Mapper;
+package spring.mapper;
 
-import bean.Url;
+import spring.model.Url;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

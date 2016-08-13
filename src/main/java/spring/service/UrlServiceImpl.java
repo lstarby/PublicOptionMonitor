@@ -19,8 +19,8 @@ public class UrlServiceImpl implements UrlService {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
 
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public void setDataSource(DataSource ds) {
+        this.dataSource = ds;
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

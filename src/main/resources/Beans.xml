@@ -6,14 +6,13 @@
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://192.168.0.104:3306/test"/>
+        <property name="url" value="jdbc:mysql://192.168.0.113:3306/test"/>
         <property name="username" value="root"/>
         <property name="password" value="password"/>
     </bean>
 
-    <!-- Definition for studentJDBCTemplate bean -->
-    <bean id="urlImplement"
-          class="dao.UrlImplement">
+    <bean id="urlServiceImpl"
+          class="spring.service.UrlServiceImpl">
         <property name="dataSource"  ref="dataSource" />
     </bean>
 </beans>

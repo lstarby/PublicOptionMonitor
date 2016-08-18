@@ -24,7 +24,7 @@
     </dependency>
 
 
-    <!--&lt;!&ndash;httpclient&ndash;&gt;-->
+    <!--httpclient-->
     <!--<dependency>-->
       <!--<groupId>org.apache.httpcomponents</groupId>-->
       <!--<artifactId>httpclient</artifactId>-->
@@ -99,6 +99,14 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
     </dependency>
+
+    <!--JSP VIEW-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>PublicOptionMonitor</finalName>

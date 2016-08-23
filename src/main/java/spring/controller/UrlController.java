@@ -4,7 +4,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import spring.model.Url;
 import spring.service.UrlServiceImpl;
 
@@ -13,15 +16,18 @@ import java.util.List;
 /**
  * Created by DYY on 2016/8/10.
  */
-@RestController
+@Controller
+@RequestMapping("/")
 public class UrlController {
 
     ApplicationContext context =
             new ClassPathXmlApplicationContext("Beans.xml");
     UrlServiceImpl urlServiceImpl = (UrlServiceImpl) context.getBean("urlServiceImpl");
     @GetMapping("/urls")
-    public List<Url> getUrls() {
-        return urlServiceImpl.allUrl();
+    public String getUrls(ModelMap model) {
+        List<Url> urls = urlServiceImpl.allUrl();
+        model.addAttribute("urls", urls);
+        return "urllist";
     }
 
     @GetMapping("/urls/{id}")

@@ -31,15 +31,17 @@ public class KeywordsServiceImpl implements KeywordsService {
 
     public void saveKeywords(Keywords keywords) {
         String content = keywords.getContent();
-        String sql = "insert into keywords (content) VALUES (?)";
-        jdbcTemplate.update(sql, content);
+        String title = keywords.getTitle();
+        String sql = "insert into keywords (content, title) VALUES (?, ?)";
+        jdbcTemplate.update(sql, content, title);
     }
 
     public void updateKeywords(Keywords keywords) {
         int id = keywords.getId();
         String content = keywords.getContent();
-        String sql = "update keywords set content = ? where id = ?";
-        jdbcTemplate.update(sql, content, id);
+        String title = keywords.getTitle();
+        String sql = "update keywords set content = ?, title = ? where id = ?";
+        jdbcTemplate.update(sql, content, title, id);
     }
 
     public void deleteById(int id) {
@@ -48,7 +50,7 @@ public class KeywordsServiceImpl implements KeywordsService {
     }
 
     public List<Keywords> findAllKeywords() {
-        String sql = "select * from keyword";
+        String sql = "select * from keywords";
         List<Keywords> keywordsList = jdbcTemplate.query(sql, new KeywordsMapper());
         return keywordsList;
     }

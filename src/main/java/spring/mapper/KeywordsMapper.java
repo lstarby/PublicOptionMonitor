@@ -14,6 +14,7 @@ public class KeywordsMapper implements RowMapper<Keywords> {
         Keywords keywords = new Keywords();
         keywords.setId(resultSet.getInt("id"));
         keywords.setContent(resultSet.getString("content"));
+        keywords.setTitle(resultSet.getString("title"));
         return keywords;
     }
 

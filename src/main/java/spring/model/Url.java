@@ -1,4 +1,4 @@
-package bean;
+package spring.model;
 
 /**
  * Created by PC on 2016/7/14.

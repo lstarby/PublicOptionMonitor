@@ -1,4 +1,4 @@
-package util;
+package spring.util;
 
 /**
  * Created by PC on 2016/7/5.

@@ -1,8 +1,10 @@
-package dao;
+package spring.service;
 
-import bean.Url;
-import Mapper.UrlMapper;
+import spring.model.Url;
+import spring.mapper.UrlMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import javax.sql.DataSource;
@@ -11,12 +13,14 @@ import java.util.List;
 /**
  * Created by PC on 2016/7/14.
  */
-public class UrlImplement implements UrlDao {
+@Service("urlService")
+@Transactional
+public class UrlServiceImpl implements UrlService {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
 
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public void setDataSource(DataSource ds) {
+        this.dataSource = ds;
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

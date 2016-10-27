@@ -3,6 +3,7 @@ package spring.controller;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,5 +51,10 @@ public class KeywordsController {
         List<Keywords> keywordsList = keywordsService.findAllKeywords();
         map.addAttribute("keywordsList", keywordsList);
         return "showkeywordslist";
+    }
+
+    @GetMapping("/index")
+    public String index(ModelMap map){
+        return "index";
     }
 }
